@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+    app:
+        build: .
+        restart: always
+        container_name: app
+        env_file:
+            - .env
+        ports:
+            - "8000:8000"
+
+    nginx:
+        image: nginx:1.27.1
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx/:/etc/nginx/conf.d/
+            - ./static:/static
+        command: ["nginx", "-g", "daemon off;"]
+        depends_on:
+            - app
