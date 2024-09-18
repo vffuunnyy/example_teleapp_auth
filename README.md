@@ -1,6 +1,6 @@
 # Telegram Example Bot
 
-This example demonstrates how to set up and use the [teleapp_auth](https://github.com/vffuunnyy/example_teleapp_auth) library.
+This example demonstrates how to set up and use the [teleapp_auth](https://github.com/vffuunnyy/teleapp_auth) library.
 The `teleapp_auth` library provides authentication functionalities for the Telegram WebApp.
 
 ## Prerequisites
