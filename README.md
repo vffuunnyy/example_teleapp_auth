@@ -11,13 +11,13 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Clone the Repository**
 
-```sh
+```bash
 git clone https://github.com/vffuunnyy/example_teleapp_auth.git
 ```
 
 2. **Install Dependencies**
 
-```sh
+```bash
 poetry install
 ```
 
@@ -25,7 +25,7 @@ poetry install
 
 Create a `.env` file in the root directory of the project and add the following environment variables:
 
-```sh
+```bash
 BOT_TOKEN=1111111111:11111111111111111111111111111111111
 HOST=https://test.example.com
 PORT=443
@@ -38,8 +38,38 @@ Edit the `nginx.conf` file in the `test_bot` directory and replace the `server_n
 
 5. **Run the Example**
 
-```sh
+```bash
 docker-compose up
+```
+
+## Example Request
+
+#### Request
+
+```bash
+curl --location 'http://127.0.0.1:8000/api/check_data' \
+--header 'Content-Type: application/json' \
+--data '{"auth_data": "query_id=AAEmj9sVAAAAACaP2xXjTtUN&user=%7B%22id%22%3A366710566%2C%22first_name%22%3A%22%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A3%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22vffuunnyy%22%2C%22language_code%22%3A%22en%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1726656532&hash=fcdeec0fcbe55e52cedb50e58d5212fbc040ed0099dbb20b1de04458ed04f061"}'
+```
+
+#### Response
+
+```json
+{
+    "status": true,
+    "user": {
+        "id": 366710566,
+        "is_bot": null,
+        "first_name": "ニューシャ",
+        "last_name": "",
+        "username": "vffuunnyy",
+        "language_code": "en",
+        "is_premium": true,
+        "added_to_attachment_menu": null,
+        "allows_write_to_pm": true,
+        "photo_url": null
+    }
+}
 ```
 
 
